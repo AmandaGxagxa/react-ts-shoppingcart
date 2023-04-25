@@ -1,4 +1,4 @@
-import Button from '@material-ui/core'
+import Button from '@material-ui/core/Button'
 
 // type
 import { CartItermType } from '../App'
@@ -16,7 +16,7 @@ const Item:React.FC<Props> = ({item, handleAddToCart})=> (
         <h3>{item.title}</h3>
         <p>{item.description}</p>
         <h3>R{item.price}</h3>
-<button onClick={()=> handleAddToCart(item)}>Add To Cart</button>
+<Button onClick={()=> handleAddToCart(item)}>Add To Cart</Button>
     </Wrapper>
 )
 
