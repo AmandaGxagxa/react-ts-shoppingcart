@@ -8,6 +8,7 @@ import Badge from "@material-ui/core/Badge";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 //Components
 import Item from "./Item/Item";
+import Cart from "./Cart/Cart";
 import { StyledButton, Wrapper } from "./App.styles";
 import { AddShoppingCart } from "@material-ui/icons";
 
@@ -34,9 +35,10 @@ function App() {
   );
   console.log(data);
 
-  const getTotalItems = (items: CartItermType[]) => 
-  items.reduce((ack:number, item) => ack + item.amount, 0);
+  const getTotalItems = (items: CartItermType[]) =>
+    items.reduce((ack: number, item) => ack + item.amount, 0);
   const handleAddToCart = (clickedItem: CartItermType) => null;
+  const handleRemoveFromCart = () => null;
 
   if (isLoading) return <LinearProgress />;
   if (error) return <div>Something went wrong</div>;
@@ -48,7 +50,7 @@ function App() {
         open={cartIsOpen}
         onClose={() => setCartIsOpen(false)}
       >
-        Cart goes here!!!
+        <Cart cartItems={cartIterms} addToCart={handleAddToCart} removeFromCart={handleRemoveFromCart}/>
       </Drawer>
       <StyledButton onClick={() => setCartIsOpen(true)}>
         <Badge badgeContent={getTotalItems(cartIterms)} color="error">
