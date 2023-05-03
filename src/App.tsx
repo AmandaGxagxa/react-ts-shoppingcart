@@ -38,23 +38,33 @@ function App() {
   const getTotalItems = (items: CartItermType[]) =>
     items.reduce((ack: number, item) => ack + item.amount, 0);
   const handleAddToCart = (clickedItem: CartItermType) => {
-    setCartItems(prev => {
+    setCartItems((prev) => {
       //Is the item already added in the cart?
-      const isItemInCart = prev.find(item => item.id === clickedItem.id)
-    
-    if(isItemInCart){
-      return prev.map(item => (
-        item.id === clickedItem.id
-        ? { ...item, amount: item.amount + 1}
-        : item
-      ))
-    }
-    //First time item is added
-    return [...prev, {...clickedItem, amount :1}];
-  
-    })
+      const isItemInCart = prev.find((item) => item.id === clickedItem.id);
+
+      if (isItemInCart) {
+        return prev.map((item) =>
+          item.id === clickedItem.id
+            ? { ...item, amount: item.amount + 1 }
+            : item
+        );
+      }
+      //First time item is added
+      return [...prev, { ...clickedItem, amount: 1 }];
+    });
   };
-  const handleRemoveFromCart = () => null;
+  const handleRemoveFromCart = (id: number) => {
+    setCartItems((prev) =>
+      prev.reduce((ack, item) => {
+        if (item.id === id) {
+          if (item.amount === 1) return ack;
+          return [...ack, { ...item, amount: item.amount - 1 }];
+        } else {
+          return [...ack, item];
+        }
+      }, [] as CartItermType[])
+    );
+  };
 
   if (isLoading) return <LinearProgress />;
   if (error) return <div>Something went wrong</div>;
@@ -66,7 +76,11 @@ function App() {
         open={cartIsOpen}
         onClose={() => setCartIsOpen(false)}
       >
-        <Cart cartItems={cartIterms} addToCart={handleAddToCart} removeFromCart={handleRemoveFromCart}/>
+        <Cart
+          cartItems={cartIterms}
+          addToCart={handleAddToCart}
+          removeFromCart={handleRemoveFromCart}
+        />
       </Drawer>
       <StyledButton onClick={() => setCartIsOpen(true)}>
         <Badge badgeContent={getTotalItems(cartIterms)} color="error">
