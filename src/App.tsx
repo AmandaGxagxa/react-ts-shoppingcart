@@ -10,7 +10,7 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import Item from "./Item/Item";
 import Cart from "./Cart/Cart";
 import { StyledButton, Wrapper } from "./App.styles";
-import { AddShoppingCart } from "@material-ui/icons";
+// import { AddShoppingCart } from "@material-ui/icons";
 
 export type CartItermType = {
   id: number;
