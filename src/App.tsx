@@ -37,7 +37,21 @@ function App() {
 
   const getTotalItems = (items: CartItermType[]) =>
     items.reduce((ack: number, item) => ack + item.amount, 0);
-  const handleAddToCart = (clickedItem: CartItermType) => null;
+  const handleAddToCart = (clickedItem: CartItermType) => {
+    setCartItems(prev => {
+      //Is the item already added in the cart?
+      const isItemInCart = prev.find(item => item.id === clickedItem.id)
+    
+    if(isItemInCart){
+      return prev.map(item => (
+        item.id === clickedItem.id
+        ? { ...item, amount: item.amount + 1}
+        : item
+      ))
+    }
+  
+    })
+  };
   const handleRemoveFromCart = () => null;
 
   if (isLoading) return <LinearProgress />;
