@@ -49,6 +49,8 @@ function App() {
         : item
       ))
     }
+    //First time item is added
+    return [...prev, {...clickedItem, amount :1}];
   
     })
   };
