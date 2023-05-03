@@ -31,7 +31,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run eject`
 
-#### https://bucolic-pavlova-636826.netlify.app/ 
+
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
@@ -49,3 +49,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 #� �r�e�a�c�t�-�t�s�-�s�h�o�p�p�i�n�g�c�a�r�t�
 �
 �
+
+### link to the actual project
+** https://bucolic-pavlova-636826.netlify.app/  **
