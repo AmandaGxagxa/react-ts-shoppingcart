@@ -51,4 +51,5 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 �
 
 ### link to the actual project
-** https://bucolic-pavlova-636826.netlify.app/  **
+
+https://bucolic-pavlova-636826.netlify.app/ 
