@@ -9,8 +9,14 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 //Components
 import Item from "./Item/Item";
 import Cart from "./Cart/Cart";
+import Server from "./Server"
 import { StyledButton, Wrapper } from "./App.styles";
+
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 // import { AddShoppingCart } from "@material-ui/icons";
+
 
 export type CartItermType = {
   id: number;
@@ -22,8 +28,18 @@ export type CartItermType = {
   amount: number;
 };
 
-const getProducts = async (): Promise<CartItermType[]> =>
-  await (await fetch("https://fakestoreapi.com/products")).json();
+const getProducts = async (): Promise<CartItermType[]> =>{
+
+ const products = await (await fetch("https://fakestoreapi.com/products")).json();
+  // const products = await prisma.product.findMany();
+  console.log(products)
+
+  return products
+}
+ 
+ 
+
+
 
 function App() {
   const [cartIsOpen, setCartIsOpen] = useState(false);

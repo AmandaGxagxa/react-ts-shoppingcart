@@ -9,6 +9,10 @@ type Props = {
     item: CartItermType;
     handleAddToCart: (clickedItem: CartItermType) => void
 }
+// AddToCart.tsx (frontend)
+// import React, { useState } from 'react';
+
+
 
 const Item:React.FC<Props> = ({item, handleAddToCart})=> (
     <Wrapper>
