@@ -9,12 +9,16 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 //Components
 import Item from "./Item/Item";
 import Cart from "./Cart/Cart";
-import Server from "./Server"
+// import Server from "./Server"
+import { Router } from 'express';
+// import { prisma } from './path/to/prisma-client';
+
 import { StyledButton, Wrapper } from "./App.styles";
 
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
+const router = Router();
 // import { AddShoppingCart } from "@material-ui/icons";
 
 

@@ -6,8 +6,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = "postgres://localhost:5432/dev"
+  provider = "sqlite"
+  url      = "file:dev.db"
 }
 
 model Cart {
